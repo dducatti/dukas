@@ -49,3 +49,14 @@ date1 = datetime(2010, 2, 3)
 date2 = datetime(2010, 3, 31)
 print(date2 - date1)                # Difference between two dates
 
+print(date1.weekday())              # number of weekday
+
+np.random.seed(1256)
+df = pd.DataFrame(np.random.randn(4, 2), columns=['Stock A', 'Stock B'])
+df2 = df.stack()                    # stack datasets
+print(df)
+print()
+print(df2)
+k = df2.unstack()
+print(k)                            # The opposite operation of stack
+
