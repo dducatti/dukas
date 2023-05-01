@@ -2,7 +2,6 @@ import os
 
 import pandas as pd
 import numpy as np
-import pandas_datareader.data as getData
 
 # print(dir(pd)) #to show all functions contained in the pandas module
 
@@ -45,9 +44,7 @@ import pandas_datareader.data as getData
 # print(x)
 # print(y)
 # print(z)
-from datetime import *
 
-from datetime import datetime
 
 # date1 = datetime(2010, 2, 3)
 # date2 = datetime(2010, 3, 31)
@@ -76,7 +73,6 @@ begdate = dt.datetime(2015, 1, 1)
 enddate = dt.datetime(2015, 11, 9)
 df = web.DataReader(ticker, data_source, begdate, enddate)
 
-print(df)
 ret = (df.Close[1] / df.Close[len(df.Close) - 1] - 1) * 100
 print(f'{ret:.2f}%')
 
