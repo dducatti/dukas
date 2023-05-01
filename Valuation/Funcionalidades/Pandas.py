@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 import numpy as np
 import pandas_datareader.data as getData
@@ -63,5 +65,18 @@ from datetime import datetime
 # print(k)                            # The opposite operation of stack
 
 
-df = getData.get_data_yahoo("AAPL")
-df.head(2)
+## FROM WEB ##
+import pandas_datareader.data as web
+import datetime as dt
+
+ticker = 'IBM'
+data_source = 'stooq'
+sec_data = pd.DataFrame()
+begdate = dt.datetime(2015, 1, 1)
+enddate = dt.datetime(2015, 11, 9)
+df = web.DataReader(ticker, data_source, begdate, enddate)
+
+print(df)
+ret = (df.Close[1] / df.Close[len(df.Close) - 1] - 1) * 100
+print(f'{ret:.2f}%')
+

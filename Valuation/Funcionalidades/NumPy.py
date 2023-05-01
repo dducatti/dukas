@@ -83,3 +83,12 @@ import Valuation.Functions.fincal
 # np.unique([2, 3, 4, 6, 6, 4, 4])     # Array ([2, 3, 4, 6])
 # np.median([1, 2, 3, 4, 5])       # 3.0
 #
+
+
+
+## Estimate returns from a price array
+
+price = np.array([10, 10.2, 10.1, 10.22, 9])
+print(price[1:])
+print(price[:-1])
+print((price[1:] - price[:-1]) / price[:-1])
