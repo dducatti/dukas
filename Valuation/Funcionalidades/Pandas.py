@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import pandas_datareader.data as getData
+
 # print(dir(pd)) #to show all functions contained in the pandas module
 
 # dates = pd.date_range('20160101', periods=5)    #generate an index array
@@ -45,18 +47,21 @@ from datetime import *
 
 from datetime import datetime
 
-date1 = datetime(2010, 2, 3)
-date2 = datetime(2010, 3, 31)
-print(date2 - date1)                # Difference between two dates
+# date1 = datetime(2010, 2, 3)
+# date2 = datetime(2010, 3, 31)
+# print(date2 - date1)                # Difference between two dates
+#
+# print(date1.weekday())              # number of weekday
+#
+# np.random.seed(1256)
+# df = pd.DataFrame(np.random.randn(4, 2), columns=['Stock A', 'Stock B'])
+# df2 = df.stack()                    # stack datasets
+# print(df)
+# print()
+# print(df2)
+# k = df2.unstack()
+# print(k)                            # The opposite operation of stack
 
-print(date1.weekday())              # number of weekday
 
-np.random.seed(1256)
-df = pd.DataFrame(np.random.randn(4, 2), columns=['Stock A', 'Stock B'])
-df2 = df.stack()                    # stack datasets
-print(df)
-print()
-print(df2)
-k = df2.unstack()
-print(k)                            # The opposite operation of stack
-
+df = getData.get_data_yahoo("AAPL")
+df.head(2)
