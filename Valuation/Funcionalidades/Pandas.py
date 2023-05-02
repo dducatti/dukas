@@ -66,13 +66,12 @@ import numpy as np
 import pandas_datareader.data as web
 import datetime as dt
 
-ticker = 'IBM'
-data_source = 'stooq'
-sec_data = pd.DataFrame()
-begdate = dt.datetime(2015, 1, 1)
-enddate = dt.datetime(2015, 11, 9)
+ticker = 'SP500'
+data_source = 'fred'
+begdate = dt.datetime(2019, 1, 1)
+enddate = dt.datetime(2019, 2, 1)
 df = web.DataReader(ticker, data_source, begdate, enddate)
+# ret = (df.Close[1] / df.Close[len(df.Close) - 1] - 1) * 100
 
-ret = (df.Close[1] / df.Close[len(df.Close) - 1] - 1) * 100
-print(f'{ret:.2f}%')
-
+print(df)
+# print(f'{ret:.2f}%')
