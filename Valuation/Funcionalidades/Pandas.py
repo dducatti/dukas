@@ -1,8 +1,6 @@
-import os
-
 import pandas as pd
 import numpy as np
-
+import datetime
 # print(dir(pd)) #to show all functions contained in the pandas module
 
 # dates = pd.date_range('20160101', periods=5)    #generate an index array
@@ -63,15 +61,18 @@ import numpy as np
 
 
 ## FROM WEB ##
+
 import pandas_datareader.data as web
 import datetime as dt
+import matplotlib.pyplot as plt
 
-ticker = 'SP500'
-data_source = 'fred'
-begdate = dt.datetime(2019, 1, 1)
+ticker = 'IBM'
+data_source = 'stooq'
+begdate = dt.datetime(2000, 1, 1)
 enddate = dt.datetime(2019, 2, 1)
 df = web.DataReader(ticker, data_source, begdate, enddate)
 # ret = (df.Close[1] / df.Close[len(df.Close) - 1] - 1) * 100
+# df.drop(columns='Date')
 
-print(df)
-# print(f'{ret:.2f}%')
+print(type(df))
+
